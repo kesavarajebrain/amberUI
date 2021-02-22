@@ -1,0 +1,36 @@
+.login-bg{
+    background: linear-gradient(13deg, #33333373, #33333373),url(../../assets/images/home_page_banner1.b233d37e7fc8266ecd46.jpg);
+    position: fixed;
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    height: -webkit-fill-available;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    min-width: 350px;
+    overflow: hidden;
+    padding: 20px;
+  }
+  .mat-form-field {
+    width: 100%;
+    min-width: 300px;
+  }
+
+  mat-card-title,
+  mat-card-content {
+    display: flex;
+    justify-content: center;
+  }
+
+  .error {
+    padding: 16px;
+    width: 300px;
+    color: white;
+    background-color: red;
+  }
+
+  .button {
+    display: flex;
+    justify-content: flex-end;
+  }
