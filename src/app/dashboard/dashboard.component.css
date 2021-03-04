@@ -1,0 +1,28 @@
+.login-bg{
+    background: linear-gradient(13deg, #33333373, #33333373),url(../../assets/images/home_page_banner1.b233d37e7fc8266ecd46.jpg);
+    position: fixed;
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    height: -webkit-fill-available;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    min-width: 350px;
+    overflow-y: scroll;
+    padding: 20px;
+  }
+  mat-card{
+    width: -webkit-fill-available;
+}
+.example-full-width {
+    width: 100%;
+  }
+  table {border: none !important;}
+  .borderless td, .borderless th {
+    border: none;
+}
+.greenBtn{
+  background-color: green !important;
+  color: white !important;
+}

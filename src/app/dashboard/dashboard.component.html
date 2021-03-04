@@ -1,1 +1,141 @@
-<p>dashboard works!</p>
+<div class="container-fluid login-bg">
+    <div class="container">
+        <div class="row">
+            <mat-card>
+                <p class="text-center">Plan Your Journey</p>
+                <p class="float-left" [innerHTML]="welcome"></p>
+
+                <p class="float-right mr-5">
+                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                        <mat-icon>more_vert</mat-icon> Menu
+                      </button>
+                      <mat-menu #menu="matMenu">
+                        <button mat-menu-item routerLink="/user-profile">
+                          <mat-icon>dialpad</mat-icon>
+                          <span>My Bookings</span>
+                        </button>
+                        <button mat-menu-item (click)="logout()">
+                          <mat-icon>logout</mat-icon>
+                          <span>Logout</span>
+                        </button>
+                      </mat-menu>
+                </p>
+            </mat-card>
+            <mat-card>
+                <mat-card-content>
+                    <form #searchForm="ngForm">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <mat-form-field appearance="outline" class="example-full-width">
+                                    <mat-label>From Destination</mat-label>
+                                    <mat-select required #startpoint="ngModel" name="startpoint"
+                                        [(ngModel)]="searchData.startpoint">
+                                        <mat-option *ngFor="let point of startPoint" [value]="point.value">
+                                            {{point.viewValue}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-3">
+                                <mat-form-field appearance="outline" class="example-full-width">
+                                    <mat-label>To Destination</mat-label>
+                                    <mat-select required #endpoint="ngModel" name="endpoint"
+                                        [(ngModel)]="searchData.endpoint">
+                                        <mat-option *ngFor="let point of endPoint" [value]="point.value">
+                                            {{point.viewValue}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-3">
+                                <button mat-raised-button color="primary" style="margin-top: 1rem;"
+                                    (click)="searchTrains()">
+                                    <mat-icon aria-hidden="false" aria-label="Example search icon">search</mat-icon>
+                                    Search
+                                    Trains
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+            <mat-card *ngIf="showTrainsDiv" class="mt-2">
+                <mat-card-content>
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-4">
+                            <table class="table borderless" cellspacing="0" cellpadding="0">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <p>Train No</p>
+                                        </td>
+                                        <td>
+                                            <p [innerHTML]="trainData.trainNo"></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p>Train Name</p>
+                                        </td>
+                                        <td>
+                                            <p [innerHTML]="trainData.trainName"></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p>Route</p>
+                                        </td>
+                                        <td>
+                                            <p [innerHTML]="trainData.trainRoute"></p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p>
+                                            <span style="color: blueviolet;">Total.Seats &nbsp;<span
+                                                    class="badge badge-primary"
+                                                    style="padding: 5%;">{{trainData.totalseats}}</span></span>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p>
+                                            <span style="color: red;">Booked.Seats &nbsp;<span class="badge badge-danger"
+                                                    style="padding: 5%;">{{trainData.booked}}</span></span>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p>
+                                            <span style="color: green;">Available.Seats &nbsp;<span class="badge badge-success"
+                                                style="padding: 5%;">{{trainData.available}}</span></span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                           <div class="col-md-12">
+                               <div class="row">
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4">
+                                    <p class="text-center" *ngIf="hideBooking">
+                                     <button mat-raised-button color="success" class="greenBtn" (click)="bookSeat(trainData)">BOOK MY SEAT</button>
+                                    </p>
+                                    <p class="text-center" *ngIf="!hideBooking">
+                                        <button mat-raised-button color="warn">Seats Unavailable</button>
+                                       </p>
+                                </div>
+                                <div class="col-md-4"></div>
+                               </div>
+                           </div>
+                        </div>
+                        <div class="col-md-1"></div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

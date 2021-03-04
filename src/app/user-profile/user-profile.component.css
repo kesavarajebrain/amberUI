@@ -1,0 +1,23 @@
+.login-bg{
+    background: linear-gradient(13deg, #33333373, #33333373),url(../../assets/images/home_page_banner1.b233d37e7fc8266ecd46.jpg);
+    position: fixed;
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    height: -webkit-fill-available;
+    bottom: 0;
+    width: 100%;
+    overflow-y: scroll;
+    color: white;
+    min-width: 350px;
+    padding: 20px;
+  }
+  mat-card{
+    width: -webkit-fill-available;
+}
+table {
+  width: 100% !important;
+}
+table.mat-table {
+  display: table !important;
+}

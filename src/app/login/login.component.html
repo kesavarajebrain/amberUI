@@ -3,9 +3,9 @@
       <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4"  style="margin-top: 15rem;">
-          <mat-card>
+          <mat-card *ngIf ="!showLogDiv">
             <mat-card-title class="text-center" style="font-size: 20px;">Train Reservation System</mat-card-title>
-            <mat-card-title class="text-center" style="font-size: 18px;">Login</mat-card-title>
+            <mat-card-title class="text-center" style="font-size: 18px;">Register User</mat-card-title>
             <mat-card-content>
               <form #loginForm="ngForm">
                 <p>
@@ -33,6 +33,40 @@
   
                 <p class="text-center">
                   <button mat-raised-button color="primary" (click)="login()">Proceed</button>
+                </p>
+                <p class="text-center">
+                  <span>Already have account ? <Span (click)="logDiv()"><b><U>LOGIN</U></b></Span></span>
+                </p>
+              </form>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card *ngIf ="showLogDiv" >
+            <mat-card-title  class="text-center" style="font-size: 20px;">Train Reservation System</mat-card-title>
+            <mat-card-title class="text-center" style="font-size: 18px;">Login User</mat-card-title>
+            <mat-card-content>
+              <form #userloginForm="ngForm">
+                <p>
+                    <mat-form-field appearance="outline">
+                      <mat-label>Mobile Number</mat-label>
+                      <input type="text" matInput placeholder="Mobile" required #mobNumber="ngModel" name="mobNumber"
+                        [(ngModel)]="loginuserData.mobNumber" minlength="10" maxlength="10">
+                    </mat-form-field>
+                  </p>
+                <p>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input type="password" matInput placeholder="Password" required #userPassword="ngModel"
+                      name="userPassword" [(ngModel)]="loginuserData.userPassword">
+                  </mat-form-field>
+                </p>
+  
+  
+                <p class="text-center">
+                  <button mat-raised-button color="primary" (click)="loginUser()">Proceed</button>
+                </p>
+                <p class="text-center">
+                  <span>New account ? <Span (click)="signDiv()"><b><U>REGISTER</U></b></Span></span>
                 </p>
               </form>
             </mat-card-content>
