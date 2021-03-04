@@ -37,6 +37,7 @@ export class CommonService {
   }
 
   getSeat(data){
+    console.log(data)
     return this.http.post<any>(this.BaseUrl + 'getSeats', data);
   }
 
